@@ -112,6 +112,20 @@ class ServiceTest {
 
 	@Test
 	void extendDeadline() {
+		Homework hw = new Homework("19","sdbck", 33,1);
+		service.saveHomework(hw.getID(),hw.getDescription(),hw.getDeadline(),hw.getStartline());
+		int result = service.extendDeadline("19", 3);
+		Assertions.assertTrue(result==1);
+		service.deleteHomework("19");
+	}
+
+	@Test
+	void extendDeadline2() {
+		Homework hw = new Homework("20","sdbck", 8,1);
+		service.saveHomework(hw.getID(),hw.getDescription(),hw.getDeadline(),hw.getStartline());
+		int result = service.extendDeadline("20", 3);
+		Assertions.assertTrue(result==1);
+		service.deleteHomework("20");
 	}
 
 	@Test
